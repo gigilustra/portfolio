@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +56,7 @@
             height: 54vh;
             border-radius: 20px;
             background: linear-gradient(145deg, #e8dcc6, #ffffff);
-            box-shadow: 
+            box-shadow:
                 20px 20px 60px #d4c7aa,
                 -20px -20px 60px #ffffff;
             margin: 0 auto 30px;
@@ -172,7 +173,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -242,7 +243,7 @@
             background: linear-gradient(145deg, #f5e6d3, #ffffff);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 
+            box-shadow:
                 15px 15px 30px #d4c7aa,
                 -15px -15px 30px #ffffff;
             transition: all 0.3s ease;
@@ -251,7 +252,7 @@
 
         .gallery-item:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 
+            box-shadow:
                 20px 20px 40px #d4c7aa,
                 -20px -20px 40px #ffffff;
         }
@@ -332,6 +333,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -339,8 +341,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         /* Background decorations */
@@ -393,8 +402,9 @@
             }
 
             .profile-image {
-                width: 54vh;
-                height: 54vh;
+                margin-top: 1vh;
+                width: 33vh;
+                height: 33vh;
             }
 
             .nav-buttons {
@@ -402,12 +412,21 @@
                 align-items: center;
             }
 
-            .nav-btn {
-                width: 200px;
+
+            header#home {
+                height: 150vh;
+                overflow-x: hidden;
             }
+
+            .body {
+                overflow-x: auto
+            }
+
+
         }
     </style>
 </head>
+
 <body>
     <!-- Background decorations -->
     <div class="bg-decoration"></div>
@@ -424,35 +443,42 @@
                         <img src="profile.jpeg" alt="Foto de uma ilustração do artista">
                     </div>
                 </div>
-                
+
                 <div class="bio-section">
                     <div class="bio" style="text-align: justify;">
                         <h1>Gigis</h1>
-                        <p>Olá! Sou a Gigis, estudante de Artes Visuais e Design Gráfico. Meu trabalho foca na criação de personagens femininas fictícias com uma abordagem mágica e singular, usando técnicas como lápis de cor, tinta acrílica e nanquim.</p>
-                        <p>Minha produção parte da valorização do feminino, do estudo da moda e da cultura asiática, sempre buscando narrativas visuais que unam o lúdico e o belo.</p>
+                        <p>Olá! Sou a Gigis, estudante de Artes Visuais e Design Gráfico. Meu trabalho foca na criação
+                            de personagens femininas fictícias com uma abordagem mágica e singular, usando técnicas como
+                            lápis de cor, tinta acrílica e nanquim.</p>
+                        <p>Minha produção parte da valorização do feminino, do estudo da moda e da cultura asiática,
+                            sempre buscando narrativas visuais que unam o lúdico e o belo.</p>
                     </div>
 
                     <div class="contacts-section">
                         <h3 class="contacts-title">Contatos</h3>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/gigilustra/" target="_blank" class="social-link" title="Instagram">
+                            <a href="https://www.instagram.com/gigilustra/" target="_blank" class="social-link"
+                                title="Instagram">
                                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                             </a>
                             <a href="mailto:giihcarvalho17@gmail.com" target="_blank" class="social-link" title="Email">
                                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                                 </svg>
                             </a>
                             <a href="https://wa.me/556299121220" target="_blank" class="social-link" title="WhatsApp">
                                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
                                 </svg>
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="nav-buttons">
                         <button class="nav-btn" onclick="showPortfolio()">⭐ Portfólio</button>
                     </div>
@@ -469,51 +495,114 @@
                 <h2>Meu Portfólio</h2>
                 <p>Confira alguns dos meus trabalhos mais recentes</p>
             </div>
-            
+
             <div class="gallery">
                 <!-- Exemplo de itens do portfólio - substitua pelas suas imagens -->
-                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+1')">
-                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+1" alt="Arte 1">
+                <div class="gallery-item" onclick="openModal('image1.jpeg')">
+                    <img src="image1.jpeg" alt="Arte 1">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 1</h3>
+                        <h3>Sereia</h3>
                         <p>Descrição breve da arte</p>
                     </div>
                 </div>
-                
-                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+2')">
-                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+2" alt="Arte 2">
+
+                <div class="gallery-item" onclick="openModal('image2.jpeg')">
+                    <img src="image2.jpeg" alt="Arte 2">
                     <div class="gallery-item-info">
                         <h3>Título da Arte 2</h3>
                         <p>Descrição breve da arte</p>
                     </div>
                 </div>
-                
-                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+3')">
-                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+3" alt="Arte 3">
+
+                <div class="gallery-item" onclick="openModal('image3.jpeg')">
+                    <img src="image3.jpeg" alt="Arte 3">
                     <div class="gallery-item-info">
                         <h3>Título da Arte 3</h3>
                         <p>Descrição breve da arte</p>
                     </div>
                 </div>
-                
-                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+4')">
-                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+4" alt="Arte 4">
+
+                <div class="gallery-item" onclick="openModal('image4.jpeg')">
+                    <img src="image4.jpeg" alt="Arte 4">
                     <div class="gallery-item-info">
                         <h3>Título da Arte 4</h3>
                         <p>Descrição breve da arte</p>
                     </div>
                 </div>
-                
-                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+5')">
-                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+5" alt="Arte 5">
+
+                <div class="gallery-item" onclick="openModal('image5.jpeg')">
+                    <img src="image5.jpeg" alt="Arte 5">
                     <div class="gallery-item-info">
                         <h3>Título da Arte 5</h3>
                         <p>Descrição breve da arte</p>
                     </div>
                 </div>
-                
-                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+6')">
-                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+6" alt="Arte 6">
+
+                <div class="gallery-item" onclick="openModal('image6.jpeg')">
+                    <img src="image6.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image7.jpeg')">
+                    <img src="image7.jpeg" alt="Arte 7">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image8.jpeg')">
+                    <img src="image8.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image9.jpeg')">
+                    <img src="image9.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image10.jpeg')">
+                    <img src="image10.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image11.jpeg')">
+                    <img src="image11.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image12.jpeg')">
+                    <img src="image12.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('image13.jpeg')">
+                    <img src="image13.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('image14.jpeg')">
+                    <img src="image14.jpeg" alt="Arte 6">
                     <div class="gallery-item-info">
                         <h3>Título da Arte 6</h3>
                         <p>Descrição breve da arte</p>
@@ -531,7 +620,7 @@
                 <h2>Serviços & Preços</h2>
                 <p>Confira os serviços que ofereço e seus respectivos valores</p>
             </div>
-            
+
             <div class="gallery">
                 <div class="gallery-item">
                     <div class="gallery-item-info" style="padding: 40px 20px;">
@@ -540,7 +629,7 @@
                         <p>Busto simples com fundo básico, estilo anime semi-realista</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item">
                     <div class="gallery-item-info" style="padding: 40px 20px;">
                         <h3>Retrato Completo</h3>
@@ -548,7 +637,7 @@
                         <p>Corpo inteiro com cenário detalhado e efeitos especiais</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item">
                     <div class="gallery-item-info" style="padding: 40px 20px;">
                         <h3>Ilustração Personalizada</h3>
@@ -568,19 +657,20 @@
                 <h2>Termos & Condições</h2>
                 <p>Informações importantes sobre meus serviços</p>
             </div>
-            
-            <div style="max-width: 800px; margin: 0 auto; background: linear-gradient(145deg, #f5e6d3, #ffffff); padding: 40px; border-radius: 20px; box-shadow: 15px 15px 30px #d4c7aa, -15px -15px 30px #ffffff;">
+
+            <div
+                style="max-width: 800px; margin: 0 auto; background: linear-gradient(145deg, #f5e6d3, #ffffff); padding: 40px; border-radius: 20px; box-shadow: 15px 15px 30px #d4c7aa, -15px -15px 30px #ffffff;">
                 <h3 style="margin-bottom: 20px;">Processo de Trabalho:</h3>
                 <p style="margin-bottom: 15px;">• Pagamento de 50% antecipado para iniciar o trabalho</p>
                 <p style="margin-bottom: 15px;">• Envio de WIP (work in progress) para aprovação</p>
                 <p style="margin-bottom: 15px;">• Até 3 revisões incluídas no preço</p>
                 <p style="margin-bottom: 30px;">• Prazo de entrega: 7 a 15 dias úteis</p>
-                
+
                 <h3 style="margin-bottom: 20px;">Direitos de Uso:</h3>
                 <p style="margin-bottom: 15px;">• Uso pessoal liberado</p>
                 <p style="margin-bottom: 15px;">• Uso comercial mediante acordo específico</p>
                 <p style="margin-bottom: 15px;">• Créditos ao artista sempre necessários</p>
-                
+
                 <h3 style="margin-bottom: 20px;">Política de Cancelamento:</h3>
                 <p>Reembolso parcial disponível antes do início da produção</p>
             </div>
@@ -595,33 +685,34 @@
                 <h2>Fazer Pedido</h2>
                 <p>Entre em contato para solicitar sua arte personalizada</p>
             </div>
-            
-            <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(145deg, #f5e6d3, #ffffff); padding: 40px; border-radius: 20px; box-shadow: 15px 15px 30px #d4c7aa, -15px -15px 30px #ffffff;">
+
+            <div
+                style="max-width: 600px; margin: 0 auto; background: linear-gradient(145deg, #f5e6d3, #ffffff); padding: 40px; border-radius: 20px; box-shadow: 15px 15px 30px #d4c7aa, -15px -15px 30px #ffffff;">
                 <div style="text-align: center;">
                     <h3 style="margin-bottom: 30px;">Como fazer seu pedido:</h3>
-                    
+
                     <div style="margin-bottom: 30px;">
                         <h4 style="color: #43204a; margin-bottom: 15px;">📧 E-mail</h4>
                         <p>seuemail@gmail.com</p>
                     </div>
-                    
+
                     <div style="margin-bottom: 30px;">
                         <h4 style="color: #43204a; margin-bottom: 15px;">💬 Discord</h4>
                         <p>SeuUsuario#1234</p>
                     </div>
-                    
+
                     <div style="margin-bottom: 30px;">
                         <h4 style="color: #43204a; margin-bottom: 15px;">📱 Instagram</h4>
                         <p>@seuinstagram</p>
                     </div>
-                    
+
                     <div style="background: #fcf3e3; padding: 20px; border-radius: 15px; border: 2px solid #43204a;">
                         <h4 style="margin-bottom: 15px;">Informações necessárias:</h4>
                         <p style="text-align: left;">• Tipo de serviço desejado<br>
-                        • Referências do personagem<br>
-                        • Descrição detalhada<br>
-                        • Prazo desejado<br>
-                        • Uso pretendido da arte</p>
+                            • Referências do personagem<br>
+                            • Descrição detalhada<br>
+                            • Prazo desejado<br>
+                            • Uso pretendido da arte</p>
                     </div>
                 </div>
             </div>
@@ -689,7 +780,7 @@
         }
 
         // Close modal when clicking outside of it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('imageModal');
             if (event.target == modal) {
                 closeModal();
@@ -697,14 +788,14 @@
         }
 
         // Close modal with ESC key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeModal();
             }
         });
 
         // Smooth scrolling and animations
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add loading animation
             document.body.style.opacity = '0';
             setTimeout(() => {
@@ -714,4 +805,5 @@
         });
     </script>
 </body>
+
 </html>
