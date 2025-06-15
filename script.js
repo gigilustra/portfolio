@@ -11,3 +11,8 @@ function openModal(imgElement) {
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
+
+function showPortfolio() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("portfolio").classList.remove("hidden");
+}

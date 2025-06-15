@@ -1,42 +1,717 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Artist Portfolio</title>
-    <link rel="stylesheet" href="./styles.css">
+    <title>Seu Nome - Artista Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background-color: #fcf3e3;
+            color: #43204a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #fcf3e3 0%, #f5e6d3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 54vh;
+            height: 54vh;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #e8dcc6, #ffffff);
+            box-shadow: 
+                20px 20px 60px #d4c7aa,
+                -20px -20px 60px #ffffff;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border: 3px solid #43204a;
+            position: relative;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.05);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #43204a, #6b3a7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .bio-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 500px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .contacts-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .contacts-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #43204a;
+            text-align: left;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            margin-bottom: 0;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #43204a, #6b3a7a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fcf3e3;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(67, 32, 74, 0.3);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: #fcf3e3;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(67, 32, 74, 0.4);
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .nav-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #43204a, #6b3a7a);
+            color: #fcf3e3;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(67, 32, 74, 0.3);
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(67, 32, 74, 0.4);
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            display: none;
+            padding: 80px 0;
+            min-height: 100vh;
+        }
+
+        .portfolio-section.active {
+            display: block;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #43204a, #6b3a7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #43204a, #6b3a7a);
+            color: #fcf3e3;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(67, 32, 74, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(67, 32, 74, 0.4);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            background: linear-gradient(145deg, #f5e6d3, #ffffff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                15px 15px 30px #d4c7aa,
+                -15px -15px 30px #ffffff;
+            transition: all 0.3s ease;
+            border: 2px solid #43204a;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                20px 20px 40px #d4c7aa,
+                -20px -20px 40px #ffffff;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 2px solid #43204a;
+        }
+
+        .gallery-item-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #43204a;
+        }
+
+        .gallery-item p {
+            font-size: 0.9rem;
+            color: #43204a;
+            opacity: 0.8;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(67, 32, 74, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fcf3e3;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Background decorations */
+        .bg-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(67, 32, 74, 0.1), rgba(107, 58, 122, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-decoration:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-decoration:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .bg-decoration:nth-child(3) {
+            top: 40%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .bio-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .bio-section p {
+                font-size: 1.1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .profile-image {
+                width: 54vh;
+                height: 54vh;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Visual Artist Portfolio</h1>
+    <!-- Background decorations -->
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+
+    <!-- Header/Home Section -->
+    <header id="home">
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <!-- Substitua pela sua foto -->
+                        <img src="profile.jpeg" alt="Foto de uma ilustração do artista">
+                    </div>
+                </div>
+                
+                <div class="bio-section">
+                    <div class="bio" style="text-align: justify;">
+                        <h1>Gigis</h1>
+                        <p>Olá! Sou a Gigis, estudante de Artes Visuais e Design Gráfico. Meu trabalho foca na criação de personagens femininas fictícias com uma abordagem mágica e singular, usando técnicas como lápis de cor, tinta acrílica e nanquim.</p>
+                        <p>Minha produção parte da valorização do feminino, do estudo da moda e da cultura asiática, sempre buscando narrativas visuais que unam o lúdico e o belo.</p>
+                    </div>
+
+                    <div class="contacts-section">
+                        <h3 class="contacts-title">Contatos</h3>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/gigilustra/" target="_blank" class="social-link" title="Instagram">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="mailto:giihcarvalho17@gmail.com" target="_blank" class="social-link" title="Email">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/556299121220" target="_blank" class="social-link" title="WhatsApp">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="nav-btn" onclick="showPortfolio()">⭐ Portfólio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section class="gallery">
-            <img src="image1.jpeg" alt="Persuasion Book Cover" onclick="openModal(this)">
-            <img src="image2.jpeg" alt="Mansfield Park Book Cover" onclick="openModal(this)">
-            <img src="image3.jpeg" alt="Emma Book Cover" onclick="openModal(this)">
-            <img src="image4.jpeg" alt="Sense and Sensibility Book Cover" onclick="openModal(this)">
-            <img src="image5.jpeg" alt="Betye Saar Artwork" onclick="openModal(this)">
-            <img src="image6.jpeg" alt="Gwendolyn Bennet Artwork" onclick="openModal(this)">
-            <img src="image7.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">
-            <img src="image8.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">
-            <img src="image9.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">
-            <img src="image10.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">
-            <img src="image11.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">
-            <img src="image12.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">
-            <img src="image13.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">     
-            <img src="image14.jpeg" alt="Elizabeth Catlett Artwork" onclick="openModal(this)">        
-        </section>
-    </main>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <a href="#" class="back-btn" onclick="showHome()">← Voltar</a>
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>Meu Portfólio</h2>
+                <p>Confira alguns dos meus trabalhos mais recentes</p>
+            </div>
+            
+            <div class="gallery">
+                <!-- Exemplo de itens do portfólio - substitua pelas suas imagens -->
+                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+1')">
+                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+1" alt="Arte 1">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 1</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+2')">
+                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+2" alt="Arte 2">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 2</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+3')">
+                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+3" alt="Arte 3">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 3</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+4')">
+                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+4" alt="Arte 4">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 4</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+5')">
+                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+5" alt="Arte 5">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 5</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openModal('https://via.placeholder.com/400x400/43204a/fcf3e3?text=Arte+6')">
+                    <img src="https://via.placeholder.com/400x300/43204a/fcf3e3?text=Arte+6" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Título da Arte 6</h3>
+                        <p>Descrição breve da arte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="portfolio-section">
+        <a href="#" class="back-btn" onclick="showHome()">← Voltar</a>
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>Serviços & Preços</h2>
+                <p>Confira os serviços que ofereço e seus respectivos valores</p>
+            </div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-item-info" style="padding: 40px 20px;">
+                        <h3>Retrato Simples</h3>
+                        <p style="font-size: 1.1rem; margin: 20px 0;">R$ 150,00</p>
+                        <p>Busto simples com fundo básico, estilo anime semi-realista</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-info" style="padding: 40px 20px;">
+                        <h3>Retrato Completo</h3>
+                        <p style="font-size: 1.1rem; margin: 20px 0;">R$ 250,00</p>
+                        <p>Corpo inteiro com cenário detalhado e efeitos especiais</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-info" style="padding: 40px 20px;">
+                        <h3>Ilustração Personalizada</h3>
+                        <p style="font-size: 1.1rem; margin: 20px 0;">R$ 400,00</p>
+                        <p>Ilustração totalmente customizada com múltiples personagens</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Section -->
+    <section id="terms" class="portfolio-section">
+        <a href="#" class="back-btn" onclick="showHome()">← Voltar</a>
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>Termos & Condições</h2>
+                <p>Informações importantes sobre meus serviços</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto; background: linear-gradient(145deg, #f5e6d3, #ffffff); padding: 40px; border-radius: 20px; box-shadow: 15px 15px 30px #d4c7aa, -15px -15px 30px #ffffff;">
+                <h3 style="margin-bottom: 20px;">Processo de Trabalho:</h3>
+                <p style="margin-bottom: 15px;">• Pagamento de 50% antecipado para iniciar o trabalho</p>
+                <p style="margin-bottom: 15px;">• Envio de WIP (work in progress) para aprovação</p>
+                <p style="margin-bottom: 15px;">• Até 3 revisões incluídas no preço</p>
+                <p style="margin-bottom: 30px;">• Prazo de entrega: 7 a 15 dias úteis</p>
+                
+                <h3 style="margin-bottom: 20px;">Direitos de Uso:</h3>
+                <p style="margin-bottom: 15px;">• Uso pessoal liberado</p>
+                <p style="margin-bottom: 15px;">• Uso comercial mediante acordo específico</p>
+                <p style="margin-bottom: 15px;">• Créditos ao artista sempre necessários</p>
+                
+                <h3 style="margin-bottom: 20px;">Política de Cancelamento:</h3>
+                <p>Reembolso parcial disponível antes do início da produção</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="portfolio-section">
+        <a href="#" class="back-btn" onclick="showHome()">← Voltar</a>
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>Fazer Pedido</h2>
+                <p>Entre em contato para solicitar sua arte personalizada</p>
+            </div>
+            
+            <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(145deg, #f5e6d3, #ffffff); padding: 40px; border-radius: 20px; box-shadow: 15px 15px 30px #d4c7aa, -15px -15px 30px #ffffff;">
+                <div style="text-align: center;">
+                    <h3 style="margin-bottom: 30px;">Como fazer seu pedido:</h3>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #43204a; margin-bottom: 15px;">📧 E-mail</h4>
+                        <p>seuemail@gmail.com</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #43204a; margin-bottom: 15px;">💬 Discord</h4>
+                        <p>SeuUsuario#1234</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #43204a; margin-bottom: 15px;">📱 Instagram</h4>
+                        <p>@seuinstagram</p>
+                    </div>
+                    
+                    <div style="background: #fcf3e3; padding: 20px; border-radius: 15px; border: 2px solid #43204a;">
+                        <h4 style="margin-bottom: 15px;">Informações necessárias:</h4>
+                        <p style="text-align: left;">• Tipo de serviço desejado<br>
+                        • Referências do personagem<br>
+                        • Descrição detalhada<br>
+                        • Prazo desejado<br>
+                        • Uso pretendido da arte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Modal -->
-    <div id="modal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-        <div id="caption"></div>
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Arte ampliada">
+        </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script>
+        // Navigation functions
+        function showHome() {
+            document.getElementById('home').style.display = 'flex';
+            document.getElementById('portfolio').classList.remove('active');
+            document.getElementById('services').classList.remove('active');
+            document.getElementById('terms').classList.remove('active');
+            document.getElementById('contact').classList.remove('active');
+        }
+
+        function showPortfolio() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('portfolio').classList.add('active');
+            document.getElementById('services').classList.remove('active');
+            document.getElementById('terms').classList.remove('active');
+            document.getElementById('contact').classList.remove('active');
+        }
+
+        function showServices() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('portfolio').classList.remove('active');
+            document.getElementById('services').classList.add('active');
+            document.getElementById('terms').classList.remove('active');
+            document.getElementById('contact').classList.remove('active');
+        }
+
+        function showTerms() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('portfolio').classList.remove('active');
+            document.getElementById('services').classList.remove('active');
+            document.getElementById('terms').classList.add('active');
+            document.getElementById('contact').classList.remove('active');
+        }
+
+        function showContact() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('portfolio').classList.remove('active');
+            document.getElementById('services').classList.remove('active');
+            document.getElementById('terms').classList.remove('active');
+            document.getElementById('contact').classList.add('active');
+        }
+
+        // Modal functions
+        function openModal(imageSrc) {
+            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('modalImage').src = imageSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
 </body>
 </html>
