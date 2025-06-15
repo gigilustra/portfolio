@@ -198,7 +198,7 @@
         }
 
         .portfolio-header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 60px;
         }
 
@@ -298,7 +298,7 @@
         .modal-content {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 60%;
             transform: translate(-50%, -50%);
             max-width: 90%;
             max-height: 90%;
@@ -307,7 +307,7 @@
         }
 
         .modal-content img {
-            width: 100%;
+            width: 63%;
             height: 100%;
             object-fit: contain;
         }
@@ -428,10 +428,6 @@
 </head>
 
 <body>
-    <!-- Background decorations -->
-    <div class="bg-decoration"></div>
-    <div class="bg-decoration"></div>
-    <div class="bg-decoration"></div>
 
     <!-- Header/Home Section -->
     <header id="home">
@@ -492,120 +488,126 @@
         <a href="#" class="back-btn" onclick="showHome()">← Voltar</a>
         <div class="container">
             <div class="portfolio-header">
-                <h2>Meu Portfólio</h2>
-                <p>Confira alguns dos meus trabalhos mais recentes</p>
+                <h2>Portfólio</h2>
+                <p>Este portfólio reúne uma seleção de trabalhos que refletem minha trajetória, meus processos e minha constante busca por novas experimentações no fazer artístico.</p>
             </div>
 
             <div class="gallery">
-                <!-- Exemplo de itens do portfólio - substitua pelas suas imagens -->
-                <div class="gallery-item" onclick="openModal('image1.jpeg')">
-                    <img src="image1.jpeg" alt="Arte 1">
+                <div class="gallery-item" onclick="openModal('cupido.jpeg')">
+                    <img src="cupido.jpeg" alt="Arte 7">
                     <div class="gallery-item-info">
-                        <h3>Sereia</h3>
-                        <p>Descrição breve da arte</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="openModal('image2.jpeg')">
-                    <img src="image2.jpeg" alt="Arte 2">
-                    <div class="gallery-item-info">
-                        <h3>Título da Arte 2</h3>
-                        <p>Descrição breve da arte</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="openModal('image3.jpeg')">
-                    <img src="image3.jpeg" alt="Arte 3">
-                    <div class="gallery-item-info">
-                        <h3>Título da Arte 3</h3>
-                        <p>Descrição breve da arte</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="openModal('image4.jpeg')">
-                    <img src="image4.jpeg" alt="Arte 4">
-                    <div class="gallery-item-info">
-                        <h3>Título da Arte 4</h3>
-                        <p>Descrição breve da arte</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="openModal('image5.jpeg')">
-                    <img src="image5.jpeg" alt="Arte 5">
-                    <div class="gallery-item-info">
-                        <h3>Título da Arte 5</h3>
-                        <p>Descrição breve da arte</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="openModal('image6.jpeg')">
-                    <img src="image6.jpeg" alt="Arte 6">
-                    <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" onclick="openModal('image7.jpeg')">
-                    <img src="image7.jpeg" alt="Arte 7">
-                    <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Cupido (2022)</h3>
+                        <p>Nanquim e papel 21cm x 29,7cm</p>
                     </div>
                 </div>
 
                 <div class="gallery-item" onclick="openModal('image8.jpeg')">
                     <img src="image8.jpeg" alt="Arte 6">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Sem título (2022)</h3>
+                        <p>Nanquim e papel 21cm x 29,7cm</p>
                     </div>
                 </div>
 
                 <div class="gallery-item" onclick="openModal('image9.jpeg')">
                     <img src="image9.jpeg" alt="Arte 6">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Sem título (2022)</h3>
+                        <p>Nanquim e papel 21cm x 29,7cm</p>
                     </div>
                 </div>
 
-                <div class="gallery-item" onclick="openModal('image10.jpeg')">
-                    <img src="image10.jpeg" alt="Arte 6">
+                <!-- Exemplo de itens do portfólio - substitua pelas suas imagens -->
+                <div class="gallery-item" onclick="openModal('sereia.jpeg')">
+                    <img src="sereia.jpeg" alt="Arte 1">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Sem título (2023)</h3>
+                        <p>Acrílica sobre tela/p>
+                        <p>29,7 cm x 42 cm<</p>
                     </div>
                 </div>
 
-                <div class="gallery-item" onclick="openModal('image11.jpeg')">
-                    <img src="image11.jpeg" alt="Arte 6">
+                <div class="gallery-item" onclick="openModal('polvo.jpeg')">
+                    <img src="polvo.jpeg" alt="Arte 6">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Sem título (2023)</h3>
+                        <p>Acrílica sobre tela</p>
+                        <p>29,7 cm x 42 cm</p>
                     </div>
                 </div>
 
-                <div class="gallery-item" onclick="openModal('image12.jpeg')">
-                    <img src="image12.jpeg" alt="Arte 6">
+                <div class="gallery-item" onclick="openModal('image2.jpeg')">
+                    <img src="image2.jpeg" alt="Arte 2">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Deslocamento (2023)</h3>
+                        <p>Tinta gouache e papel </p>
+                        <p>16,5 cm x 16,5 cm</p>
                     </div>
                 </div>
 
-                <div class="gallery-item" onclick="openModal('image13.jpeg')">
-                    <img src="image13.jpeg" alt="Arte 6">
+                <div class="gallery-item" onclick="openModal('elie.jpeg')">
+                    <img src="elie.jpeg" alt="Arte 3">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Elie (2022)</h3>
+                        <p>Lápis de cor, caneta em gel e papel</p>
+                        <p>21 cm x 29,7 cm</p>
                     </div>
                 </div>
-                <div class="gallery-item" onclick="openModal('image14.jpeg')">
-                    <img src="image14.jpeg" alt="Arte 6">
+
+                <div class="gallery-item" onclick="openModal('bruxinha.jpeg')">
+                    <img src="bruxinha.jpeg" alt="Arte 4">
                     <div class="gallery-item-info">
-                        <h3>Título da Arte 6</h3>
-                        <p>Descrição breve da arte</p>
+                        <h3>Autorretrato (2022)</h3>
+                        <p>Lápis de cor, caneta em gel e papel</p>
+                        <p>19,6 cm x 16,6 cm</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('fada.jpeg')">
+                    <img src="fada.jpeg" alt="Arte 5">
+                    <div class="gallery-item-info">
+                        <h3>Autorretrato (2022)</h3>
+                        <p>Lápis de cor, caneta em gel e papel </p>
+                        <p>19,6cm x 16,6 cm</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('sereialapis.jpeg')">
+                    <img src="sereialapis.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Sem título (2022)</h3>
+                        <p>21 cm x 29,7 cm</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('sapatos.jpeg')">
+                    <img src="sapatos.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Isso não é sobre sapatos (2023)</h3>
+                        <p>Ilustração digital</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('passaro.jpeg')">
+                    <img src="passaro.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Sem título (2024)</h3>
+                        <p>Ilustração digital</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal('cabracega.jpeg')">
+                    <img src="cabracega.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>Sem título (2024)</h3>
+                        <p>Ilustração digital</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('eremita.jpeg')">
+                    <img src="eremita.jpeg" alt="Arte 6">
+                    <div class="gallery-item-info">
+                        <h3>O eremita (2024)</h3>
+                        <p>Ilustração digital</p>
                     </div>
                 </div>
             </div>
